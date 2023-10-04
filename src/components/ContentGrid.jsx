@@ -1,9 +1,5 @@
 import {
     AcademicCapIcon,
-    BanknotesIcon,
-    CheckBadgeIcon,
-    ClockIcon,
-    ReceiptRefundIcon,
     UsersIcon,
     BookOpenIcon,
     SpeakerWaveIcon,
