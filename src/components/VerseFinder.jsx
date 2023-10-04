@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 
-function VerseFinder() {
+function VerseFinder({ inputKey }) {
     // Declare a state variable called 'count' and its setter 'setCount'
     // const [count, setCount] = useState(0);
   
@@ -19,7 +19,7 @@ function VerseFinder() {
         const responsePastor = await fetch('https://api.openai.com/v1/chat/completions', {
           method: 'POST',
           headers: {
-            'Authorization': `Bearer ${process.env.REACT_APP_API_KEY}`, 
+            'Authorization': `Bearer ${inputKey}`, 
             'Content-Type': 'application/json'
           },
           body: JSON.stringify({

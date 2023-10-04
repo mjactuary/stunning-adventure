@@ -38,13 +38,13 @@ function Clients() {
       <Container>
         <FadeIn className="flex items-center gap-x-8">
           <h2 className="text-center font-display text-sm font-semibold tracking-wider text-white sm:text-left">
-          Type in any Bible verse and the AI will generate a commentary on it for you. It takes a few seconds to load
+          {process.env.REACT_APP_API_KEY} Type in any Bible verse and the AI will generate a commentary on it for you. It takes a few seconds to load
           </h2>
           <div className="h-px flex-auto bg-neutral-800" />
         </FadeIn>
         <FadeInStagger faster>
 
-<BibleCom></BibleCom>
+<BibleCom inputKey={process.env.REACT_APP_API_KEY} />
          
         </FadeInStagger>
       </Container>
@@ -64,7 +64,7 @@ function Prayers() {
         </FadeIn>
         <FadeInStagger faster>
 
-<PrayerGenerator></PrayerGenerator>
+<PrayerGenerator inputKey={process.env.REACT_APP_API_KEY} />
          
         </FadeInStagger>
       </Container>
@@ -84,7 +84,7 @@ function Verse() {
         </FadeIn>
         <FadeInStagger faster>
 
-<VerseFinder></VerseFinder>
+<VerseFinder inputKey={process.env.REACT_APP_API_KEY} />
          
         </FadeInStagger>
       </Container>
@@ -104,7 +104,7 @@ function Pastor() {
         </FadeIn>
         <FadeInStagger faster>
 
-<PastorChat></PastorChat>
+<PastorChat inputKey={process.env.REACT_APP_API_KEY} />
          
         </FadeInStagger>
       </Container>

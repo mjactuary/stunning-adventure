@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 
-function BibleCom() {
+function BibleCom({ inputKey }) {
     // Declare a state variable called 'count' and its setter 'setCount'
     // const [count, setCount] = useState(0);
   
@@ -19,7 +19,7 @@ function BibleCom() {
         const responsePastor = await fetch('https://api.openai.com/v1/chat/completions', {
           method: 'POST',
           headers: {
-            'Authorization': `Bearer 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`, 
+            'Authorization': `Bearer ${inputKey}`, 
             'Content-Type': 'application/json'
           },
           body: JSON.stringify({
@@ -38,7 +38,7 @@ function BibleCom() {
       const errorData = await responsePastor.json();
       console.error("Error from OpenAI API:", errorData);
       throw new Error(`OpenAI API Error: ${errorData.error || 'Unknown Error'}`);
-      console.log(process.env.REACT_APP_API_KEY);
+
     }
 
     const dataPastor = await responsePastor.json();
@@ -47,7 +47,7 @@ function BibleCom() {
 
   } catch (error) {
     console.error("There was an error fetching the data:", error);
-    setOutputText("The Pastor is unfortunately busy.");
+    setOutputText(`The ${inputKey} Pastor is unfortunately busy.`);
   } finally {
     setIsLoading(false);
   }
