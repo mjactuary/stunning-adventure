@@ -19,7 +19,7 @@ function BibleCom() {
         const responsePastor = await fetch('https://api.openai.com/v1/chat/completions', {
           method: 'POST',
           headers: {
-            'Authorization': `Bearer ${process.env.REACT_APP_API_KEY}`, 
+            'Authorization': `Bearer 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`, 
             'Content-Type': 'application/json'
           },
           body: JSON.stringify({
@@ -38,6 +38,7 @@ function BibleCom() {
       const errorData = await responsePastor.json();
       console.error("Error from OpenAI API:", errorData);
       throw new Error(`OpenAI API Error: ${errorData.error || 'Unknown Error'}`);
+      console.log(process.env.REACT_APP_API_KEY);
     }
 
     const dataPastor = await responsePastor.json();
@@ -62,6 +63,7 @@ function BibleCom() {
   
     return (
       
+      
         
             <div className="flex items-center gap-x-8">
               <div className="px-4 py-5 sm:p-6">
@@ -79,11 +81,13 @@ function BibleCom() {
                     />
                   </div>
                   
+                  
                   <button 
   onClick={handleSubmit} 
   disabled={isLoading}
   className="mt-3 inline-flex w-full items-center justify-center rounded-md bg-white px-5 py-2 text-sm font-semibold text-black shadow-sm hover:bg-gray-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 sm:ml-3 sm:mt-0 sm:w-auto">
   {isLoading ? 'Loading...' : 'Ask'}
+  
 </button>
                   
                   </form>
